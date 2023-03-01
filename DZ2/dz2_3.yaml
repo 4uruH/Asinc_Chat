@@ -1,0 +1,9 @@
+dict:
+  delta: 3Δ
+  omega: 1Ω
+  sigma: 2σ
+list:
+- some letters
+- some numbers
+- 2
+number: 5
