@@ -1,0 +1,18 @@
+{
+    "orders": [
+        {
+            "item": "вертолет",
+            "quantity": "1000",
+            "price": "1452345135",
+            "buyer": "weapon_baron",
+            "date": "01.03.2023"
+        },
+        {
+            "item": "танк",
+            "quantity": "101230",
+            "price": "45135",
+            "buyer": "somali_piraten",
+            "date": "01.03.2023"
+        }
+    ]
+}
