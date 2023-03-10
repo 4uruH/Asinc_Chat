@@ -1,8 +1,17 @@
 from socket import *
 import sys
 import json
-from config import MAX_CONNECTIONS, DEFAULT_PORT
-from functions import get_message, send_message
+from DZ3.config import MAX_CONNECTIONS, DEFAULT_IP_ADDRESS, DEFAULT_PORT, ACTION
+from DZ3.functions import get_message, send_message
+
+
+def client_msg_validation(message):
+    if 'action' in message and message['action'] == ACTION and 'time' in message:
+        return {'response': 200}
+    return {
+        'response': 400,
+        'error': 'Bad Request'
+    }
 
 
 def main():
@@ -40,13 +49,7 @@ def main():
         try:
             client_msg = get_message(client)
             print(client_msg)
-
-            if client_msg['action'] == 'presence' and client_msg["time"]:
-                response = {'response': 200}
-            else:
-                response = {'response': 400,
-                            'error': 'bad request'}
-
+            response = client_msg_validation(client_msg)
             send_message(client, response)
             client.close()
 

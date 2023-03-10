@@ -1,8 +1,8 @@
 import sys
 from socket import *
 import time
-from config import DEFAULT_IP_ADDRESS, DEFAULT_PORT
-from functions import get_message, send_message
+from DZ3.config import DEFAULT_IP_ADDRESS, DEFAULT_PORT, ACTION
+from DZ3.functions import get_message, send_message
 
 
 def create_msg(action, username):
@@ -11,6 +11,14 @@ def create_msg(action, username):
             "user": {"account_name": username}}
 
     return data
+
+
+def server_response_cval(message):
+    if 'response' in message:
+        if message['response'] == 200:
+            return '200 : OK'
+        return f'400 : {message["error"]}'
+    raise ValueError
 
 
 def main():
@@ -28,13 +36,10 @@ def main():
 
     s = socket(AF_INET, SOCK_STREAM)
     s.connect((server_address, server_port))
-    msg_to_send = create_msg("presence", "fantom")
+    msg_to_send = create_msg(ACTION, "fantom")
     send_message(s, msg_to_send)
     server_response = get_message(s)
-    if server_response['response'] == 200:
-        return "code: 200"
-    else:
-        return f'response code {server_response["response"]}, error: {server_response["error"]}'
+    server_response_cval(server_response)
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 import json
-from config import MAX_PACKAGE_LENGTH, ENCODING
+from DZ3.config import MAX_PACKAGE_LENGTH, ENCODING
 
 
 def get_message(client):
