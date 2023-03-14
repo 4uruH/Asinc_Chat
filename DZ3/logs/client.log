@@ -1,0 +1,37 @@
+2023-03-13 14:20:07,151 CRITICAL config_client_log.py Критическая ошибка
+2023-03-13 14:20:07,151 ERROR config_client_log.py Ошибка
+2023-03-13 14:20:07,151 DEBUG config_client_log.py Отладочная информация
+2023-03-13 14:20:07,151 INFO config_client_log.py Информационное сообщение
+2023-03-13 14:20:52,084 CRITICAL config_client_log.py Критическая ошибка
+2023-03-13 14:20:52,085 ERROR config_client_log.py Ошибка
+2023-03-13 14:20:52,085 DEBUG config_client_log.py Отладочная информация
+2023-03-13 14:20:52,085 INFO config_client_log.py Информационное сообщение
+2023-03-13 14:28:40,274 CRITICAL config_client_log.py Критическая ошибка
+2023-03-13 14:28:40,274 ERROR config_client_log.py Ошибка
+2023-03-13 14:28:40,275 DEBUG config_client_log.py Отладочная информация
+2023-03-13 14:28:40,275 INFO config_client_log.py Информационное сообщение
+2023-03-13 15:14:51,563 INFO client.py Client started: server: 127.0.0.1, port: 7777
+2023-03-13 15:14:53,594 CRITICAL client.py cant connect to serve 127.0.0.1:7777, connection refused.
+2023-03-13 15:19:37,974 CRITICAL config_server_log.py Критическая ошибка
+2023-03-13 15:19:37,974 ERROR config_server_log.py Ошибка
+2023-03-13 15:19:37,974 DEBUG config_server_log.py Отладочная информация
+2023-03-13 15:19:37,974 INFO config_server_log.py Информационное сообщение
+2023-03-13 15:41:36,051 INFO client.py Client started: server: 127.0.0.1, port: 7777
+2023-03-13 15:41:36,053 DEBUG client.py user fantom create a presence message
+2023-03-13 15:41:36,054 INFO client.py message from server {'response': 200}
+2023-03-13 15:41:36,054 DEBUG client.py server message: {'response': 200}
+2023-03-14 13:49:26,376 DEBUG decorator.py Called function create_arg_parser with (), {}.Called from __main__. From function main(). From function main
+2023-03-14 13:49:26,377 INFO client.py Client started: server: 127.0.0.1, port: 7777
+2023-03-14 13:49:26,379 DEBUG client.py user fantom create a presence message
+2023-03-14 13:49:26,381 DEBUG decorator.py Called function create_msg with ('presence', 'fantom'), {}.Called from __main__. From function main(). From function main
+2023-03-14 13:49:26,391 DEBUG decorator.py Called function send_message with (<socket.socket fd=512, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 55715), raddr=('127.0.0.1', 7777)>, {'action': 'presence', 'time': 1678790966.379312, 'user': {'account_name': 'fantom'}}), {}.Called from DZ3.functions. From function main(). From function main
+2023-03-14 13:49:26,392 DEBUG decorator.py Called function get_message with (<socket.socket fd=512, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 55715), raddr=('127.0.0.1', 7777)>,), {}.Called from DZ3.functions. From function main(). From function main
+2023-03-14 13:49:26,393 INFO client.py message from server {'response': 200}
+2023-03-14 13:49:26,393 DEBUG client.py server message: {'response': 200}
+2023-03-14 13:49:26,394 DEBUG decorator.py Called function server_response_cval with ({'response': 200},), {}.Called from __main__. From function main(). From function main
+2023-03-14 13:49:26,395 DEBUG decorator.py Called function main with (), {}.Called from __main__. From function main(). From function <module>
+2023-03-14 13:51:33,808 DEBUG decorator.py Called function create_arg_parser with arguments: (), {}. Called from module __main__. From function main(). From function main
+2023-03-14 13:51:33,809 INFO client.py Client started: server: 127.0.0.1, port: 7777
+2023-03-14 13:51:33,810 DEBUG client.py user fantom create a presence message
+2023-03-14 13:51:33,811 DEBUG decorator.py Called function create_msg with arguments: ('presence', 'fantom'), {}. Called from module __main__. From function main(). From function main
+2023-03-14 13:51:33,812 DEBUG decorator.py Called function send_message with arguments: (<socket.socket fd=336, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 55914), raddr=('127.0.0.1', 7777)>, {'action': 'presence', 'time': 1678791093.8105688, 'user': {'account_name': 'fantom'}}), {}. Called from module DZ3.functions. From function main(). From function main
