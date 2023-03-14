@@ -1,11 +1,17 @@
 from socket import *
 import sys
 import json
+import argparse
+import logging
+import DZ3.logs.config_server_log
 from DZ3.config import MAX_CONNECTIONS, DEFAULT_IP_ADDRESS, DEFAULT_PORT, ACTION
 from DZ3.functions import get_message, send_message
 
+server_log = logging.getLogger('server')
+
 
 def client_msg_validation(message):
+    server_log.debug(f'client message validation : {message}')
     if 'action' in message and message['action'] == ACTION and 'time' in message:
         return {'response': 200}
     return {
@@ -14,32 +20,24 @@ def client_msg_validation(message):
     }
 
 
+def create_arg_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p', default=DEFAULT_PORT, type=int, nargs='?')
+    parser.add_argument('-a', default='', nargs='?')
+    return parser
+
+
 def main():
-    try:
-        if '-p' in sys.argv:
-            listen_port = int(sys.argv[sys.argv.index('-p') + 1])
-        else:
-            listen_port = DEFAULT_PORT
-        if listen_port < 1024 or listen_port > 65535:
-            raise ValueError
-    except IndexError:
-        print('не указан номер порта  -\'p\' ')
-        sys.exit(1)
-    except ValueError:
-        print(
-            'номер порта в диапазоне 1024 до 65535.')
-        sys.exit(1)
+    parser = create_arg_parser()
+    namespace = parser.parse_args(sys.argv[1:])
+    listen_address = namespace.a
+    listen_port = namespace.p
 
-    try:
-        if '-a' in sys.argv:
-            listen_address = sys.argv[sys.argv.index('-a') + 1]
-        else:
-            listen_address = ''
-
-    except IndexError:
-        print(
-            ' \'a\'- IP адрес для прослушивания')
+    if not 1023 < listen_port < 65536:
+        server_log.critical(f'wrong port {listen_port}. available ports from 1024 to 65535.')
         sys.exit(1)
+    server_log.info(f'server started on port: {listen_port}, awaiting connections from: {listen_address}.')
+
     s = socket(AF_INET, SOCK_STREAM)
     s.bind((listen_address, listen_port))
     s.listen(MAX_CONNECTIONS)
@@ -48,13 +46,15 @@ def main():
         client, addr = s.accept()
         try:
             client_msg = get_message(client)
-            print(client_msg)
+            server_log.debug(f'received message from client {client_msg}')
             response = client_msg_validation(client_msg)
             send_message(client, response)
+            server_log.debug(f'send message: {response} to client')
             client.close()
+            server_log.info('connection close')
 
         except (ValueError, json.JSONDecodeError):
-            print('Принято некорретное сообщение от клиента.')
+            server_log.error(f'cant decode a client message or wrong data from client {addr}')
             client.close()
 
 
