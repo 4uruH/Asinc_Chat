@@ -1,0 +1,22 @@
+2023-03-13 15:19:50,585 CRITICAL config_server_log.py Критическая ошибка
+2023-03-13 15:19:50,585 ERROR config_server_log.py Ошибка
+2023-03-13 15:19:50,585 DEBUG config_server_log.py Отладочная информация
+2023-03-13 15:19:50,585 INFO config_server_log.py Информационное сообщение
+2023-03-13 15:41:15,362 INFO server.py server started on port: 7777, awaiting connections from: .
+2023-03-13 15:41:36,053 DEBUG server.py received message from client {'action': 'presence', 'time': 1678711296.053186, 'user': {'account_name': 'fantom'}}
+2023-03-13 15:41:36,053 DEBUG server.py client_msg_validation : {'action': 'presence', 'time': 1678711296.053186, 'user': {'account_name': 'fantom'}}
+2023-03-13 15:41:36,054 DEBUG server.py send message: {'response': 200} to client
+2023-03-13 15:41:36,054 DEBUG server.py connection close
+2023-03-14 13:47:29,118 DEBUG decorator.py Called function create_arg_parser with (), {}.Called from __main__. From function main(). From function main
+2023-03-14 13:47:29,118 INFO server.py server started on port: 7777, awaiting connections from: .
+2023-03-14 13:49:23,227 DEBUG decorator.py Called function create_arg_parser with (), {}.Called from __main__. From function main(). From function main
+2023-03-14 13:49:23,227 INFO server.py server started on port: 7777, awaiting connections from: .
+2023-03-14 13:49:26,382 DEBUG decorator.py Called function get_message with (<socket.socket fd=488, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 55715)>,), {}.Called from DZ3.functions. From function main(). From function main
+2023-03-14 13:49:26,382 DEBUG server.py received message from client {'action': 'presence', 'time': 1678790966.379312, 'user': {'account_name': 'fantom'}}
+2023-03-14 13:49:26,382 DEBUG server.py client message validation : {'action': 'presence', 'time': 1678790966.379312, 'user': {'account_name': 'fantom'}}
+2023-03-14 13:49:26,383 DEBUG decorator.py Called function client_msg_validation with ({'action': 'presence', 'time': 1678790966.379312, 'user': {'account_name': 'fantom'}},), {}.Called from __main__. From function main(). From function main
+2023-03-14 13:49:26,385 DEBUG decorator.py Called function send_message with (<socket.socket fd=488, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 55715)>, {'response': 200}), {}.Called from DZ3.functions. From function main(). From function main
+2023-03-14 13:49:26,385 DEBUG server.py send message: {'response': 200} to client
+2023-03-14 13:49:26,385 INFO server.py connection close
+2023-03-14 13:51:34,122 DEBUG decorator.py Called function create_arg_parser with arguments: (), {}. Called from module __main__. From function main(). From function main
+2023-03-14 13:51:34,123 INFO server.py server started on port: 7777, awaiting connections from: .

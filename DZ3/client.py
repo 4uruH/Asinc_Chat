@@ -6,10 +6,12 @@ import logging
 import DZ3.logs.config_client_log
 from DZ3.config import DEFAULT_IP_ADDRESS, DEFAULT_PORT, ACTION
 from DZ3.functions import get_message, send_message
+from decorator import logger
 
 log = logging.getLogger('client')
 
 
+@logger
 def create_msg(action, username):
     data = {"action": action,
             "time": time.time(),
@@ -18,6 +20,7 @@ def create_msg(action, username):
     return data
 
 
+@logger
 def server_response_cval(message):
     log.debug(f'server message: {message}')
     if 'response' in message:
@@ -27,6 +30,7 @@ def server_response_cval(message):
     raise ValueError
 
 
+@logger
 def create_arg_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('addr', default=DEFAULT_IP_ADDRESS, nargs='?')
@@ -34,6 +38,7 @@ def create_arg_parser():
     return parser
 
 
+@logger
 def main():
     parser = create_arg_parser()
     namespace = parser.parse_args(sys.argv[1:])

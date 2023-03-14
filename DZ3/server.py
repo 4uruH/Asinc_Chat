@@ -6,10 +6,12 @@ import logging
 import DZ3.logs.config_server_log
 from DZ3.config import MAX_CONNECTIONS, DEFAULT_IP_ADDRESS, DEFAULT_PORT, ACTION
 from DZ3.functions import get_message, send_message
+from decorator import logger
 
 server_log = logging.getLogger('server')
 
 
+@logger
 def client_msg_validation(message):
     server_log.debug(f'client message validation : {message}')
     if 'action' in message and message['action'] == ACTION and 'time' in message:
@@ -20,6 +22,7 @@ def client_msg_validation(message):
     }
 
 
+@logger
 def create_arg_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', default=DEFAULT_PORT, type=int, nargs='?')
@@ -27,6 +30,7 @@ def create_arg_parser():
     return parser
 
 
+@logger
 def main():
     parser = create_arg_parser()
     namespace = parser.parse_args(sys.argv[1:])
